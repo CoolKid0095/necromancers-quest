@@ -1,6 +1,6 @@
 function loadTilemap (numOfTileMap: number) {
     if (numOfTileMap == 1) {
-        tiles.setTilemap(tilemap`level2`)
+    	
     } else if (numOfTileMap == 2 || numOfTileMap == 3) {
         tiles.setTilemap(tilemap`level3`)
     } else if (numOfTileMap == 4) {
