@@ -41,6 +41,3 @@ loadTilemap(1)
 let following = 1
 let formation = 1
 let currentMap = 1
-forever(function () {
-    tiles.setTilemap(tilemap`level1`)
-})
