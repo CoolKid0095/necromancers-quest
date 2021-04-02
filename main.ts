@@ -7,10 +7,10 @@ function loadTilemap (numOfTileMap: number) {
         tiles.setTilemap(tilemap`level4`)
     }
 }
-let mySprite2 = null
-let mySprite3 = null
+let mySprite2 = 0
+let mySprite3 = 0
 let O = 0
-let list2 = null
+let list2 = 0
 let L = 0
 let M = 0
 let numOfColumns = 0
