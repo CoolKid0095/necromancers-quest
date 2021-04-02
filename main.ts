@@ -1,16 +1,16 @@
 function loadTilemap (numOfTileMap: number) {
     if (numOfTileMap == 1) {
-        tiles.setTilemap(tilemap`level2`)
+        tiles.setTilemap(tilemap`level5`)
     } else if (numOfTileMap == 2 || numOfTileMap == 3) {
-        tiles.setTilemap(tilemap`level3`)
+        tiles.setTilemap(tilemap`level6`)
     } else if (numOfTileMap == 4) {
-        tiles.setTilemap(tilemap`level4`)
+        tiles.setTilemap(tilemap`level7`)
     }
 }
-let mySprite2 = null
-let mySprite3 = null
+let mySprite2 = 0
+let mySprite3 = 0
 let O = 0
-let list2 = null
+let list2 = 0
 let L = 0
 let M = 0
 let numOfColumns = 0
@@ -41,6 +41,3 @@ loadTilemap(1)
 let following = 1
 let formation = 1
 let currentMap = 1
-forever(function () {
-    tiles.setTilemap(tilemap`level1`)
-})
