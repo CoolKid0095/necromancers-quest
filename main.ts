@@ -1,43 +1,74 @@
-function loadTilemap (numOfTileMap: number) {
-    if (numOfTileMap == 1) {
-    	
-    } else if (numOfTileMap == 2 || numOfTileMap == 3) {
-        tiles.setTilemap(tilemap`level3`)
-    } else if (numOfTileMap == 4) {
-        tiles.setTilemap(tilemap`level4`)
-    }
+namespace SpriteKind {
+    export const Tree = SpriteKind.create()
 }
-let mySprite2 = 0
-let mySprite3 = 0
-let O = 0
-let list2 = 0
-let L = 0
-let M = 0
-let numOfColumns = 0
-let N = 0
-let numOfRows = 0
-let I = 0
-let J = 0
-let myNecromancer = sprites.create(assets.image`Necromancer`, SpriteKind.Player)
-controller.moveSprite(myNecromancer, 50, 50)
+controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
+    animation.runImageAnimation(
+    myNecromancer,
+    assets.animation`myNecromancerWalkUp0`,
+    200,
+    true
+    )
+})
+controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
+    animation.runImageAnimation(
+    myNecromancer,
+    assets.animation`myNecromancerWalkLeft`,
+    200,
+    true
+    )
+})
+controller.right.onEvent(ControllerButtonEvent.Released, function () {
+    animation.runImageAnimation(
+    myNecromancer,
+    assets.animation`myNecromancerWalkAnimation`,
+    200,
+    true
+    )
+})
+controller.left.onEvent(ControllerButtonEvent.Released, function () {
+    animation.runImageAnimation(
+    myNecromancer,
+    assets.animation`myNecromancerWalkAnimation`,
+    200,
+    true
+    )
+})
+controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
+    animation.runImageAnimation(
+    myNecromancer,
+    assets.animation`myNecromancerWalkRight`,
+    200,
+    true
+    )
+})
+controller.up.onEvent(ControllerButtonEvent.Released, function () {
+    animation.runImageAnimation(
+    myNecromancer,
+    assets.animation`myNecromancerWalkAnimation`,
+    200,
+    true
+    )
+})
+let Tree1: Sprite = null
+let Tree2: Sprite = null
+let myNecromancer: Sprite = null
+tiles.setTilemap(tilemap`DarkeForest1`)
+myNecromancer = sprites.create(assets.image`Necromancer`, SpriteKind.Player)
+myNecromancer.setPosition(250, 250)
+controller.moveSprite(myNecromancer, 75, 75)
 scene.cameraFollowSprite(myNecromancer)
+color.setColor(3, color.rgb(150, 150, 150))
+for (let value of tiles.getTilesByType(assets.tile`myTile`)) {
+    Tree2 = sprites.create(assets.image`Tree2`, SpriteKind.Tree)
+    tiles.placeOnTile(Tree2, value)
+}
+for (let value of tiles.getTilesByType(assets.tile`myTile134`)) {
+    Tree1 = sprites.create(assets.image`Tree1`, SpriteKind.Tree)
+    tiles.placeOnTile(Tree1, value)
+}
 animation.runImageAnimation(
 myNecromancer,
 assets.animation`myNecromancerWalkAnimation`,
-300,
+200,
 true
 )
-let myKnight = sprites.create(assets.tile`myTile`, SpriteKind.Enemy)
-animation.runImageAnimation(
-myKnight,
-assets.animation`myKnightWalkAnimation`,
-300,
-true
-)
-color.setColor(3, color.rgb(150, 150, 150))
-let numOfRows2 = 0
-let numOfColmuns2 = 0
-loadTilemap(1)
-let following = 1
-let formation = 1
-let currentMap = 1
